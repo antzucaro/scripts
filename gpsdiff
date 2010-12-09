@@ -1,0 +1,30 @@
+#!/usr/bin/perl
+
+# this script takes two latitude and longitude values and prints out
+# the distance between them.
+#
+# command line format: from_latitude from_longitude to_latitude to_longitude
+
+$r = 3963.1; # radius of earth
+#$r = 20925524.9; # radius of earth in feet
+
+$from_lat = to_rad($ARGV[0]);
+$from_lon = to_rad($ARGV[1]);
+$to_lat   = to_rad($ARGV[2]);
+$to_lon   = to_rad($ARGV[3]);
+
+print &acos(cos($from_lat)*cos($from_lon)*cos($to_lat)*cos($to_lon) + cos($from_lat)*sin($from_lon)*cos($to_lat)*sin($to_lon) + sin($from_lat)*sin($to_lat)) * $r;
+
+sub to_rad {
+    # define a good value of pi
+    $pi = atan2(1,1) * 4;
+
+    $degrees = $_[0];
+    return $degrees * ($pi/180);
+}
+
+sub acos {
+    my($x) = @_;
+    my $ret = atan2(sqrt(1 - $x**2), $x);
+    return $ret;
+}

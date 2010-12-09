@@ -1,0 +1,15 @@
+A bunch of scripts that I find useful in common workflows:
+
+flac2mp3 - convert FLACs to MP3
+gpsdiff - distance between two latitude/longitude pairs
+gpx2csv - turns a GPX (GPS related) file into latitude/longitude pairs
+llld - list the directories in a given path that have no directories within them (list leaf level directories)
+m3u - create m3u playlists in a given directory by examining IDv3 tags
+pk3_print_emails - prints the maps and e-mail addresses found in Quake3/Nexuiz map pk3s
+print_gallery.py - quick and dirty html output for my Wordpress image galleries
+raw2jpg - use ufraw-batch to convert raw files from my Nikon D70 into jpgs for web use
+rename_directories - one-time conversion script to go from <descriptor><YYYYMMDD> to <YYYYMMDD><descriptor>
+rename_images - take images in a directory and rename them with a prefix and an incrementing number
+rmrawdupes - remove raw files in a given directory if I've already converted them to jpg
+thumbnail - make a square thumbnail that shrinks the image and crops the excess
+trspaces - remove or escape stuff when doing bash processing with find or xargs

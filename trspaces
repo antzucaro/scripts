@@ -1,0 +1,6 @@
+#!/bin/sed  -f
+# this command escapes spaces for use w/ xargs
+# and while read loops
+s/ /\\&/g
+s/^/"/g
+s/$/"/g

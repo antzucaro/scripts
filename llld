@@ -1,0 +1,11 @@
+#!/bin/bash
+
+# llld - list leaf level directories
+
+# this script lists the leaf level
+# directories - those with no sub
+# directories beneath them
+
+dir=$1
+
+find $dir -type d -links 2

@@ -1,0 +1,18 @@
+#!/usr/bin/perl -n
+
+# This script takes a standard GPX format which looks like this:
+#
+#      <trkpt lat="38.032266" lon="-78.858703"><ele>580.44</ele></trkpt>
+#      <trkpt lat="38.032268" lon="-78.858703"><ele>580.44</ele></trkpt>
+#      <trkpt lat="38.032269" lon="-78.858703"><ele>580.44</ele></trkpt>
+#
+# ...and turns it into this:
+#
+#      38.032266,-78.858703,580.44
+#      38.032268,-78.858703,580.44
+#      38.032269,-78.858703,580.44
+#
+# This is to allow for the importation of standard GPS data into a spreadsheet like Excel
+# for further processing.
+
+print "$1,$2,$3\n" if /(-?\d+\.\d+).*?(-?\d+\.\d+).*?(-?\d+\.\d+)/

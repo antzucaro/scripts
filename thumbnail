@@ -1,0 +1,9 @@
+#!/bin/bash
+
+file=$1
+size=$2
+
+# use this if you want to rename the thumbnail
+#new_filename=$(echo $file | sed s/\.jpg//)_t.jpg
+
+convert -resize ${size}x${size}^ -gravity center -extent ${size}x${size} $file thumb/$file

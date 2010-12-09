@@ -1,0 +1,9 @@
+#!/bin/bash
+
+echo "Here are the JPEGs in the directory: "
+ls -1 *.jpg
+
+for file in `ls *.jpg | sed 's/jpg/nef/'`
+do
+rm -i $file
+done

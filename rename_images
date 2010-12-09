@@ -1,0 +1,32 @@
+#!/usr/bin/python
+
+import os
+import glob
+import sys
+
+# check that we have an arg (PREFIX)
+if len(sys.argv) < 2 :
+   print "\nError: not enough args."
+   print "Syntax: rename_images.py PREFIX\n"
+   sys.exit(1)
+
+# determine the prefix
+prefix = sys.argv[1]
+
+# get where we are now
+pwd = os.getcwd()
+
+# change working directory to current one
+os.chdir(pwd)
+
+# get the jpg files
+pics = glob.glob('*[jJ][pP][gG]')
+
+# sort the list
+pics.sort()
+
+img_num = 1
+for pic in pics:
+   print "Renaming %s to %s..." % (pic, "%s_%.3d.jpg" % (prefix, img_num))
+   os.rename(pic, "%s_%.3d.jpg" % (prefix, img_num))
+   img_num = img_num + 1

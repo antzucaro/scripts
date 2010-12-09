@@ -1,0 +1,10 @@
+#!/bin/bash
+
+# converts RAW (NEF) pictures from the Nikon D70 
+# into JPEGs of the same name (e.g. xxxx.nef becomes xxxx.jpg)
+
+# this works on your current working directory!!!
+for pic in $*
+do 
+  ufraw-batch --out-type=jpeg --compression=95 $pic
+done

@@ -1,0 +1,14 @@
+#!/bin/bash
+
+pk3file=$1
+
+# lists the map files in the pk3 file. useful for identifying the 
+# map names within the pk3
+echo "Maps in $pk3file:"
+unzip -l $pk3file | egrep "bsp$" | awk '{print $4}'
+echo ""
+
+# look for e-mail addresses within the text files in the pk3
+# print out which file they appear in so they can be tied to a map
+echo "E-mail addresses found in $pk3file:"
+unzip -cjC $pk3file "*txt" "*mapinfo" "*txt" "*mapcfg" 2> /dev/null | perl -wne'if(/inflating: (.*)\s*$/){ $file = $1; chomp $file;} if(/[\w\.\-]+@[\w\.\-]+\w+/g){print "$file: $&\n"}'
