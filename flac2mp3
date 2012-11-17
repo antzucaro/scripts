@@ -20,7 +20,7 @@ rm tmp.tmp
 
 echo "Converting ${FLAC} to MP3 format"
 
-flac -c -d "$FLAC" | lame -h --vbr-new -V 1 \
+flac -c -d "$FLAC" | lame -h --vbr-new -V 0 \
 --tt "$TITLE" \
 --tn "$TRACKNUMBER" \
 --tg "$GENRE" \
@@ -31,4 +31,3 @@ flac -c -d "$FLAC" | lame -h --vbr-new -V 1 \
 --add-id3v2 \
 - ${OUT_DIR}/"$MP3"
 done
-
