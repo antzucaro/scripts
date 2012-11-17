@@ -1,0 +1,5 @@
+#!/bin/bash
+
+PROCESSORS=2
+
+find . -maxdepth 1 -mindepth 1 -type d -print0 | xargs -n1 -0 -P ${PROCESSORS} /home/ant/bin/mp3gain.shl

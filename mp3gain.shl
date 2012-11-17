@@ -1,0 +1,9 @@
+#!/bin/bash
+
+DIR=$@
+echo "processing $DIR..."
+cd "$DIR"
+find . -name "*.mp3" -exec mp3gain -s d {} \; > /dev/null
+find . -name "*.mp3" -exec mp3gain {} \; > /dev/null
+find . -name "*.mp3" -exec ape_to_id3.py -df {} \; > /dev/null
+echo "done."
